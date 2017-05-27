@@ -1,17 +1,17 @@
 {
-  "name": "vue-material",
-  "description": "Material Design for Vue.js",
+  "name": "vue-material-rtl",
+  "description": "Material Design for Vue.js RTL Version",
   "version": "0.7.1",
-  "author": "Marcos Moura <marcosvmmoura@gmail.com>",
+  "author": "Hussein Jahanbakhsh <husseinjahan@gmail.com>",
   "homepage": "https://vuematerial.github.io",
   "license": "MIT",
   "registry": "github",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcosmoura/vue-material.git"
+    "url": "https://github.com/armandar/vue-material.git"
   },
   "bugs": {
-    "url": "https://github.com/marcosmoura/vue-material/issues"
+    "url": "https://github.com/armandar/vue-material/issues"
   },
   "keywords": [
     "browser",

@@ -155,7 +155,7 @@
           const tab = this.tabList[tabId];
 
           tab.ref.width = width + 'px';
-          tab.ref.left = width * index + 'px';
+          tab.ref.right = width * index + 'px';
           index++;
         }
       },
