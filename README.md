@@ -4,6 +4,10 @@
   </a>
 </p>
 
+<p align="center" dir="rtl">
+  بعضی کامپوننت‌ها به روزرسانی شده اند تا در راست به چپ مشکل نداشته باشند.
+</p>
+
 <p align="center">Material Design for Vue.js</p>
 
 <p align="center">
