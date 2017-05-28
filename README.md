@@ -11,20 +11,20 @@
 <p align="center">Material Design for Vue.js</p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/vue-material">
-    <img src="https://img.shields.io/npm/dt/vue-material.svg" alt="Downloads">
+  <a href="https://www.npmjs.com/package/vue-material-rtl">
+    <img src="https://img.shields.io/npm/dt/vue-material-rtl.svg" alt="Downloads">
   </a>
 
-  <a href="https://www.npmjs.com/package/vue-material">
-    <img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version">
+  <a href="https://www.npmjs.com/package/vue-material-rtl">
+    <img src="https://img.shields.io/npm/v/vue-material-rtl.svg" alt="Version">
   </a>
 
   <a href="https://cdnjs.com/libraries/vue-material">
-    <img src="https://img.shields.io/cdnjs/v/vue-material.svg" alt="Version">
+    <img src="https://img.shields.io/cdnjs/v/vue-material-rtl.svg" alt="Version">
   </a>
 
-  <a href="https://www.npmjs.com/package/vue-material">
-    <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
+  <a href="https://www.npmjs.com/package/vue-material-rtl">
+    <img src="https://img.shields.io/npm/l/vue-material-rtl.svg" alt="License">
   </a>
 
   <a href="https://gitter.im/vuematerial">
@@ -40,6 +40,7 @@ Build powerful and well-designed web apps that can fit on every screen. You can 
 
 ## Demo and Documentation
 <a href="https://vuematerial.github.io/" target="_blank">Demo</a>
+Convert Main CSS File With <a href="http://rtlcss.com/" target="_blank">rtlcss</a> and use this library.
 
 ## Installation
 
@@ -52,25 +53,24 @@ Import Roboto and Material Icons from Google CDN:
 
 Install Vue Material through npm or yarn
 ``` bash
-npm install --save vue-material
-yarn add vue-material
+npm install --save vue-material-rtl
 ```
 <small>* Others package managers like JSPM and Bower are not supported yet.</small>
 
 Import or require Vue and Vue Material in your code:
 ``` javascript
 import Vue from 'vue'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
+import VueMaterial from 'vue-material-rtl'
+import 'vue-material/dist/vue-material-rtl.css' //Created by rtlcss.com
 
 // OR
 
 var Vue = require('vue')
-var VueMaterial = require('vue-material')
-require('vue-material/dist/vue-material.css')
+var VueMaterial = require('vue-material-rtl')
+require('vue-material/dist/vue-material-rtl.css')
 ```
 
-Alternativelly you can <a href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
+Alternativelly you can <a href="https://github.com/marcosmoura/vue-material-rtl/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
 
 ``` html
 <link rel="stylesheet" href="path/to/vue-material.css">
