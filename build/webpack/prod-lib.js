@@ -107,6 +107,7 @@ export default merge(baseConfig, {
       banner: `/*!
 * Vue Material v${version}
 * Made with love by Marcos Moura
+* And RTL Support By Hussein Jahanbakhsh
 * Released under the MIT License.
 */   `,
       raw: true,

@@ -1,5 +1,5 @@
 <template>
-  <page-content page-title="Components - Tabs">
+  <page-content page-title="Components - Tabs" style="direction:rtl;">
     <docs-component>
       <div slot="description">
         <p>Tabs enable content organization at a high level, such as switching between views, data sets, or functional aspects of an app.</p>

@@ -8569,6 +8569,10 @@ exports.default = {
     mdActive: Boolean,
     mdDisabled: Boolean,
     mdTooltip: String,
+    isRtl: {
+      type: Boolean,
+      default: true
+    },
     mdTooltipDelay: {
       type: String,
       default: '0'
@@ -8579,12 +8583,19 @@ exports.default = {
     }
   },
   data: function data() {
-    return {
+    var defaultObj = this.isRtl === true ? {
+      mounted: false,
+      tabId: this.id || 'tab-' + (0, _uniqueId2.default)(),
+      width: '0px',
+      right: '0px'
+    } : {
       mounted: false,
       tabId: this.id || 'tab-' + (0, _uniqueId2.default)(),
       width: '0px',
       left: '0px'
     };
+
+    return defaultObj;
   },
 
   watch: {
@@ -8612,10 +8623,15 @@ exports.default = {
   },
   computed: {
     styles: function styles() {
-      return {
+      var styleObj = this.isRtl === true ? {
+        width: this.width,
+        right: this.left
+      } : {
         width: this.width,
         left: this.left
       };
+
+      return styleObj;
     }
   },
   methods: {
@@ -8640,14 +8656,11 @@ exports.default = {
     var tabData = this.getTabData();
 
     this.parentTabs = (0, _getClosestVueParent2.default)(this.$parent, 'md-tabs');
-
     if (!this.parentTabs) {
       throw new Error('You must wrap the md-tab in a md-tabs');
     }
-
     this.mounted = true;
     this.parentTabs.updateTab(tabData);
-
     if (this.mdActive) {
       this.parentTabs.setActiveTab(tabData);
     }
@@ -8839,7 +8852,7 @@ exports.default = {
         var tab = this.tabList[tabId];
 
         tab.ref.width = width + 'px';
-        tab.ref.right = width * index + 'px';
+        tab.ref.left = width * index + 'px';
         index++;
       }
     },
@@ -13938,7 +13951,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "md-tabs-wrapper",
     style: ({
-      transform: ("translate3D(-" + _vm.contentWidth + ", 0, 0)")
+      transform: ("translate3D(" + _vm.contentWidth + ", 0, 0)")
     })
   }, [_vm._t("default")], 2)])], 1)
 },staticRenderFns: []}

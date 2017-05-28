@@ -22,7 +22,7 @@
     </md-whiteframe>
 
     <div class="md-tabs-content" ref="tabContent" :style="{ height: contentHeight }">
-      <div class="md-tabs-wrapper" :style="{ transform: `translate3D(-${contentWidth}, 0, 0)` }">
+      <div class="md-tabs-wrapper" :style="{ transform: `translate3D(${contentWidth}, 0, 0)` }">
         <slot></slot>
       </div>
     </div>
@@ -155,7 +155,7 @@
           const tab = this.tabList[tabId];
 
           tab.ref.width = width + 'px';
-          tab.ref.right = width * index + 'px';
+          tab.ref.left = width * index + 'px';
           index++;
         }
       },
@@ -163,7 +163,7 @@
         this.$nextTick(() => {
           if (Object.keys(this.tabList).length) {
             let height = this.tabList[this.activeTab].ref.$el.offsetHeight;
-
+  
             this.contentHeight = height + 'px';
           }
         });

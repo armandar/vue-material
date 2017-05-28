@@ -7,7 +7,6 @@
 <script>
   import uniqueId from '../../core/utils/uniqueId';
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
-
   export default {
     props: {
       id: [String, Number],
@@ -16,6 +15,10 @@
       mdActive: Boolean,
       mdDisabled: Boolean,
       mdTooltip: String,
+      isRtl: {
+        type: Boolean,
+        default: true
+      },
       mdTooltipDelay: {
         type: String,
         default: '0'
@@ -26,12 +29,19 @@
       }
     },
     data() {
-      return {
+      var defaultObj = this.isRtl === true ? {
+        mounted: false,
+        tabId: this.id || 'tab-' + uniqueId(),
+        width: '0px',
+        right: '0px'
+      } : {
         mounted: false,
         tabId: this.id || 'tab-' + uniqueId(),
         width: '0px',
         left: '0px'
       };
+  
+      return defaultObj;
     },
     watch: {
       mdActive() {
@@ -58,10 +68,15 @@
     },
     computed: {
       styles() {
-        return {
+        var styleObj = this.isRtl === true ? {
+          width: this.width,
+          right: this.left
+        } : {
           width: this.width,
           left: this.left
         };
+  
+        return styleObj;
       }
     },
     methods: {
@@ -84,16 +99,13 @@
     },
     mounted() {
       let tabData = this.getTabData();
-
+  
       this.parentTabs = getClosestVueParent(this.$parent, 'md-tabs');
-
       if (!this.parentTabs) {
         throw new Error('You must wrap the md-tab in a md-tabs');
       }
-
       this.mounted = true;
       this.parentTabs.updateTab(tabData);
-
       if (this.mdActive) {
         this.parentTabs.setActiveTab(tabData);
       }
