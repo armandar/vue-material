@@ -95,7 +95,7 @@ html[dir="rtl"] {
     .md-checkbox-container {
       &:after {
         opacity: 1;
-        transform: rotate(45deg) scale3D(1, 1, 1);
+        transform: rotate(45deg) scale3D(-1, 1, 1);
         transition: $swift-ease-out;
       }
     }
