@@ -1,5 +1,5 @@
 <template>
-  <page-content page-title="Components - Button">
+  <page-content page-title="Components - Button" style="direction:rtl;">
     <docs-component>
       <div slot="description">
         <p>Buttons communicate the action that will occur when the user touches them.</p>
