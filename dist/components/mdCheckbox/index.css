@@ -76,5 +76,10 @@
   transform: rotate(45deg) scale3D(1, 1, 1);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+html[dir="rtl"] .md-checkbox.md-checked .md-checkbox-container:after {
+  opacity: 1;
+  transform: rotate(45deg) scale3D(-1, 1, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
 /*# sourceMappingURL=index.css.map*/

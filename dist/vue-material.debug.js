@@ -7098,7 +7098,7 @@ exports.default = {
 
       if (optionsArray && optionsArray.length) {
         optionsArray.filter((function (el) {
-          return modelValue.indexOf(el.value) !== -1;
+          return modelValue.toString().indexOf(el.value) !== -1;
         })).forEach((function (el) {
           el.check = true;
         }));
@@ -13127,7 +13127,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.previousPage($event)
       }
     }
-  }, [_c('md-icon', [_vm._v("keyboard_arrow_left")])], 1), _vm._v(" "), _c('md-button', {
+  }, [_c('md-icon', [_vm._v("keyboard_arrow_right")])], 1), _vm._v(" "), _c('md-button', {
     staticClass: "md-icon-button md-table-pagination-next",
     attrs: {
       "disabled": _vm.shouldDisable
@@ -13137,7 +13137,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.nextPage($event)
       }
     }
-  }, [_c('md-icon', [_vm._v("keyboard_arrow_right")])], 1)], 1)
+  }, [_c('md-icon', [_vm._v("keyboard_arrow_left")])], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

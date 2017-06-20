@@ -1,5 +1,5 @@
 /*!
-* Vue Material v0.7.4
+* Vue Material v0.9.0
 * Made with love by Marcos Moura
 * And RTL Support By Hussein Jahanbakhsh
 * Released under the MIT License.

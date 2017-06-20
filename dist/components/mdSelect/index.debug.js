@@ -495,7 +495,7 @@ exports.default = {
 
       if (optionsArray && optionsArray.length) {
         optionsArray.filter((function (el) {
-          return modelValue.indexOf(el.value) !== -1;
+          return modelValue.toString().indexOf(el.value) !== -1;
         })).forEach((function (el) {
           el.check = true;
         }));
