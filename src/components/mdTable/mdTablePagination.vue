@@ -105,6 +105,7 @@
     },
     mounted() {
       this.$nextTick(() => {
+        this.totalItems = this.mdTotal;
         this.subTotal = this.currentPage * this.currentSize;
         this.mdPageOptions = this.mdPageOptions || [10, 25, 50, 100];
         this.currentSize = this.mdPageOptions[0];

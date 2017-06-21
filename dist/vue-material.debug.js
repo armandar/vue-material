@@ -8383,6 +8383,7 @@ exports.default = {
     var _this = this;
 
     this.$nextTick((function () {
+      _this.totalItems = _this.mdTotal;
       _this.subTotal = _this.currentPage * _this.currentSize;
       _this.mdPageOptions = _this.mdPageOptions || [10, 25, 50, 100];
       _this.currentSize = _this.mdPageOptions[0];
