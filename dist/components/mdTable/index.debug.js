@@ -867,10 +867,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
 
 exports.default = {
   props: {
@@ -929,7 +925,7 @@ exports.default = {
       if (this.canFireEvents) {
         var sub = this.currentPage * this.currentSize;
 
-        this.subTotal = sub > this.mdTotal ? this.mdTotal : sub;
+        this.subTotal = sub > this.totalItems ? this.totalItems : sub;
         this.$emit('pagination', {
           size: this.currentSize,
           page: this.currentPage
@@ -961,7 +957,7 @@ exports.default = {
     var _this = this;
 
     this.$nextTick((function () {
-      _this.totalItems = _this.mdTotal;
+      _this.totalItems = isNaN(_this.mdTotal) ? _maxSafeInteger2.default : parseInt(_this.mdTotal, 10);
       _this.subTotal = _this.currentPage * _this.currentSize;
       _this.mdPageOptions = _this.mdPageOptions || [10, 25, 50, 100];
       _this.currentSize = _this.mdPageOptions[0];
@@ -1743,6 +1739,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, _vm._l((_vm.mdPageOptions), (function(amount) {
     return _c('md-option', {
+      key: amount,
       attrs: {
         "value": amount
       }

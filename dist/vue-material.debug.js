@@ -7060,7 +7060,6 @@ exports.default = {
       if (this.multiple) {
         return 'md-multiple ' + this.mdMenuClass;
       }
-
       return this.mdMenuClass;
     }
   },
@@ -7117,7 +7116,6 @@ exports.default = {
           output.text = options.$refs.item.textContent;
         }
       }));
-
       return output;
     },
     getMultipleValue: function getMultipleValue(modelValue) {
@@ -7141,13 +7139,11 @@ exports.default = {
             }
           }));
         }));
-
         return {
           value: modelValue,
           text: outputText.join(', ')
         };
       }
-
       return {};
     },
     setTextAndValue: function setTextAndValue(modelValue) {
@@ -7155,7 +7151,6 @@ exports.default = {
 
       this.selectedValue = output.value;
       this.selectedText = output.text;
-
       if (this.parentContainer) {
         this.parentContainer.setValue(this.selectedText);
       }
@@ -7166,20 +7161,20 @@ exports.default = {
       this.$emit('selected', value);
     },
     selectMultiple: function selectMultiple(index, value, text) {
-      var values = [];
+      if (this.multiple) {
+        var values = [];
 
-      this.multipleOptions[index] = {
-        value: value,
-        text: text
-      };
-
-      for (var key in this.multipleOptions) {
-        if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
-          values.push(this.multipleOptions[key].value);
+        this.multipleOptions[index] = {
+          value: value,
+          text: text
+        };
+        for (var key in this.multipleOptions) {
+          if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
+            values.push(this.multipleOptions[key].value);
+          }
         }
+        this.changeValue(values);
       }
-
-      this.changeValue(values);
     },
     selectOption: function selectOption(value, text) {
       this.selectedText = text;
@@ -7189,14 +7184,12 @@ exports.default = {
   },
   mounted: function mounted() {
     this.parentContainer = (0, _getClosestVueParent2.default)(this.$parent, 'md-input-container');
-
     if (this.parentContainer) {
       this.setParentDisabled();
       this.setParentRequired();
       this.setParentPlaceholder();
       this.parentContainer.hasSelect = true;
     }
-
     this.setTextAndValue(this.value);
   },
   beforeDestroy: function beforeDestroy() {
@@ -7206,6 +7199,8 @@ exports.default = {
     }
   }
 }; //
+//
+//
 //
 //
 //
@@ -8289,10 +8284,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
 
 exports.default = {
   props: {
@@ -8351,7 +8342,7 @@ exports.default = {
       if (this.canFireEvents) {
         var sub = this.currentPage * this.currentSize;
 
-        this.subTotal = sub > this.mdTotal ? this.mdTotal : sub;
+        this.subTotal = sub > this.totalItems ? this.totalItems : sub;
         this.$emit('pagination', {
           size: this.currentSize,
           page: this.currentPage
@@ -8383,7 +8374,7 @@ exports.default = {
     var _this = this;
 
     this.$nextTick((function () {
-      _this.totalItems = _this.mdTotal;
+      _this.totalItems = isNaN(_this.mdTotal) ? _maxSafeInteger2.default : parseInt(_this.mdTotal, 10);
       _this.subTotal = _this.currentPage * _this.currentSize;
       _this.mdPageOptions = _this.mdPageOptions || [10, 25, 50, 100];
       _this.currentSize = _this.mdPageOptions[0];
@@ -13114,6 +13105,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, _vm._l((_vm.mdPageOptions), (function(amount) {
     return _c('md-option', {
+      key: amount,
       attrs: {
         "value": amount
       }
@@ -14869,6 +14861,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v(_vm._s(_vm.selectedText))]) : _vm._e(), _vm._v(" "), _vm._l((_vm.multipleOptions), (function(option) {
     return (option.value) ? _c('option', {
+      key: option.value,
       attrs: {
         "selected": "true"
       },

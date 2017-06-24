@@ -457,7 +457,6 @@ exports.default = {
       if (this.multiple) {
         return 'md-multiple ' + this.mdMenuClass;
       }
-
       return this.mdMenuClass;
     }
   },
@@ -514,7 +513,6 @@ exports.default = {
           output.text = options.$refs.item.textContent;
         }
       }));
-
       return output;
     },
     getMultipleValue: function getMultipleValue(modelValue) {
@@ -538,13 +536,11 @@ exports.default = {
             }
           }));
         }));
-
         return {
           value: modelValue,
           text: outputText.join(', ')
         };
       }
-
       return {};
     },
     setTextAndValue: function setTextAndValue(modelValue) {
@@ -552,7 +548,6 @@ exports.default = {
 
       this.selectedValue = output.value;
       this.selectedText = output.text;
-
       if (this.parentContainer) {
         this.parentContainer.setValue(this.selectedText);
       }
@@ -563,20 +558,20 @@ exports.default = {
       this.$emit('selected', value);
     },
     selectMultiple: function selectMultiple(index, value, text) {
-      var values = [];
+      if (this.multiple) {
+        var values = [];
 
-      this.multipleOptions[index] = {
-        value: value,
-        text: text
-      };
-
-      for (var key in this.multipleOptions) {
-        if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
-          values.push(this.multipleOptions[key].value);
+        this.multipleOptions[index] = {
+          value: value,
+          text: text
+        };
+        for (var key in this.multipleOptions) {
+          if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
+            values.push(this.multipleOptions[key].value);
+          }
         }
+        this.changeValue(values);
       }
-
-      this.changeValue(values);
     },
     selectOption: function selectOption(value, text) {
       this.selectedText = text;
@@ -586,14 +581,12 @@ exports.default = {
   },
   mounted: function mounted() {
     this.parentContainer = (0, _getClosestVueParent2.default)(this.$parent, 'md-input-container');
-
     if (this.parentContainer) {
       this.setParentDisabled();
       this.setParentRequired();
       this.setParentPlaceholder();
       this.parentContainer.hasSelect = true;
     }
-
     this.setTextAndValue(this.value);
   },
   beforeDestroy: function beforeDestroy() {
@@ -603,6 +596,8 @@ exports.default = {
     }
   }
 }; //
+//
+//
 //
 //
 //
@@ -1148,6 +1143,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v(_vm._s(_vm.selectedText))]) : _vm._e(), _vm._v(" "), _vm._l((_vm.multipleOptions), (function(option) {
     return (option.value) ? _c('option', {
+      key: option.value,
       attrs: {
         "selected": "true"
       },
