@@ -924,7 +924,6 @@ exports.default = {
     emitPaginationEvent: function emitPaginationEvent() {
       if (this.canFireEvents) {
         var sub = this.currentPage * this.currentSize;
-
         this.subTotal = sub > this.totalItems ? this.totalItems : sub;
         this.$emit('pagination', {
           size: this.currentSize,
@@ -934,6 +933,10 @@ exports.default = {
     },
     changeSize: function changeSize() {
       if (this.canFireEvents) {
+        var sub = this.currentPage * this.currentSize;
+        if (sub > this.totalItems) {
+          this.firstPage();
+        }
         this.$emit('size', this.currentSize);
         this.emitPaginationEvent();
       }
@@ -948,6 +951,13 @@ exports.default = {
     nextPage: function nextPage() {
       if (this.canFireEvents) {
         this.currentPage++;
+        this.$emit('page', this.currentPage);
+        this.emitPaginationEvent();
+      }
+    },
+    firstPage: function firstPage() {
+      if (this.canFireEvents) {
+        this.currentPage = 1;
         this.$emit('page', this.currentPage);
         this.emitPaginationEvent();
       }

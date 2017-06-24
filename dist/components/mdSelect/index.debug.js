@@ -457,6 +457,7 @@ exports.default = {
       if (this.multiple) {
         return 'md-multiple ' + this.mdMenuClass;
       }
+
       return this.mdMenuClass;
     }
   },
@@ -513,6 +514,7 @@ exports.default = {
           output.text = options.$refs.item.textContent;
         }
       }));
+
       return output;
     },
     getMultipleValue: function getMultipleValue(modelValue) {
@@ -536,11 +538,13 @@ exports.default = {
             }
           }));
         }));
+
         return {
           value: modelValue,
           text: outputText.join(', ')
         };
       }
+
       return {};
     },
     setTextAndValue: function setTextAndValue(modelValue) {
@@ -548,6 +552,7 @@ exports.default = {
 
       this.selectedValue = output.value;
       this.selectedText = output.text;
+
       if (this.parentContainer) {
         this.parentContainer.setValue(this.selectedText);
       }
@@ -565,11 +570,13 @@ exports.default = {
           value: value,
           text: text
         };
+
         for (var key in this.multipleOptions) {
           if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
             values.push(this.multipleOptions[key].value);
           }
         }
+
         this.changeValue(values);
       }
     },
@@ -581,12 +588,14 @@ exports.default = {
   },
   mounted: function mounted() {
     this.parentContainer = (0, _getClosestVueParent2.default)(this.$parent, 'md-input-container');
+
     if (this.parentContainer) {
       this.setParentDisabled();
       this.setParentRequired();
       this.setParentPlaceholder();
       this.parentContainer.hasSelect = true;
     }
+
     this.setTextAndValue(this.value);
   },
   beforeDestroy: function beforeDestroy() {
@@ -596,6 +605,8 @@ exports.default = {
     }
   }
 }; //
+//
+//
 //
 //
 //

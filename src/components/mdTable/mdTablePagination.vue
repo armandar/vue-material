@@ -1,17 +1,13 @@
 <template>
   <div class="md-table-pagination">
     <span class="md-table-pagination-label">{{ mdLabel }}:</span>
-
     <md-select v-model="currentSize" md-menu-class="md-pagination-select" @change="changeSize" v-if="mdPageOptions">
       <md-option v-for="amount in mdPageOptions" :key="amount" :value="amount">{{ amount }}</md-option>
     </md-select>
-
     <span>{{ ((currentPage - 1) * currentSize) + 1 }}-{{ subTotal }} {{ mdSeparator }} {{ mdTotal }}</span>
-
     <md-button class="md-icon-button md-table-pagination-previous" @click.native="previousPage" :disabled="currentPage === 1">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
-    
     <md-button class="md-icon-button md-table-pagination-next" @click.native="nextPage" :disabled="shouldDisable">
       <md-icon>keyboard_arrow_left</md-icon>
     </md-button>
@@ -84,6 +80,11 @@
       },
       changeSize() {
         if (this.canFireEvents) {
+          const sub = this.currentPage * this.currentSize;
+  
+          if (sub > this.totalItems) {
+            this.firstPage();
+          }
           this.$emit('size', this.currentSize);
           this.emitPaginationEvent();
         }
@@ -98,6 +99,13 @@
       nextPage() {
         if (this.canFireEvents) {
           this.currentPage++;
+          this.$emit('page', this.currentPage);
+          this.emitPaginationEvent();
+        }
+      },
+      firstPage() {
+        if (this.canFireEvents) {
+          this.currentPage = 1;
           this.$emit('page', this.currentPage);
           this.emitPaginationEvent();
         }
