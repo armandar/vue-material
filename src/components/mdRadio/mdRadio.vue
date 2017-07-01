@@ -1,8 +1,14 @@
 <template>
   <div class="md-radio" :class="[themeClass, classes]">
     <div class="md-radio-container" @click="toggleCheck">
-      <input type="radio" :name="name" :id="id" :disabled="disabled" :value="value">
-      <md-ink-ripple :md-disabled="disabled" />
+      <input type="radio" :name="name" :id="id" :disabled="disabled" :value="value"
+        :v-validate="vValidate"
+        :data-vv-as="dataVvAs"
+        :data-vv-delay="dataVvDelay"
+        :data-vv-name="dataVvName"
+        :data-vv-value-path="dataVvValuePath"
+        :data-vv-validate-on="dataVvValidateOn">
+      <md-ink-ripple :md-disabled="disabled"></md-ink-ripple>
     </div>
 
     <label :for="id || name" class="md-radio-label" v-if="$slots.default">
@@ -11,7 +17,11 @@
   </div>
 </template>
 
-<style lang="scss" src="./mdRadio.scss"></style>
+<style lang="scss" src="./mdRadio.scss">
+  .error-remover{
+    background-color: inherit;
+  }
+</style>
 
 <script>
   import theme from '../../core/components/mdTheme/mixin';
@@ -25,7 +35,25 @@
         type: [String, Boolean, Number],
         required: true
       },
-      disabled: Boolean
+      disabled: Boolean,
+      vValidate: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvAs: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvDelay: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvName: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValuePath: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValidateOn: {
+        type: String | Object | Array | Boolean | Function
+      }
     },
     mixins: [theme],
     computed: {

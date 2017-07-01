@@ -1,6 +1,8 @@
 /* Third Party */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VeeValidate, { Validator } from 'vee-validate';
+import fa from 'vee-validate/dist/locale/fa';
 
 /* Configs */
 import './config.js';
@@ -30,6 +32,7 @@ let router = new VueRouter({
 });
 
 let Docs = Vue.component('app', App);
+
 let handleSectionTheme = (currentRoute) => {
   let theme = 'default';
   let name = currentRoute.name;
@@ -52,6 +55,12 @@ let handleSectionTheme = (currentRoute) => {
 
   Vue.material.setCurrentTheme(theme);
 };
+
+Validator.addLocale(fa);
+
+Vue.use(VeeValidate, {
+  locale: 'fa'
+});
 
 Docs = new Docs({
   el: '#app',

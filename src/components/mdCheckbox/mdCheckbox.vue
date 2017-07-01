@@ -1,8 +1,15 @@
 <template>
   <div class="md-checkbox" :class="[themeClass, classes]">
     <div class="md-checkbox-container" @click.stop="toggleCheck" tabindex="0">
-      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value" :checked="checked" tabindex="-1">
-      <md-ink-ripple :md-disabled="disabled" />
+      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value" :checked="checked"
+            :v-validate="vValidate"
+            :data-vv-as="dataVvAs"
+            :data-vv-delay="dataVvDelay"
+            :data-vv-name="dataVvName"
+            :data-vv-value-path="dataVvValuePath"
+            :data-vv-validate-on="dataVvValidateOn" 
+            tabindex="-1">
+      <md-ink-ripple :md-disabled="disabled"></md-ink-ripple>
     </div>
 
     <label :for="id || name" class="md-checkbox-label" v-if="$slots.default">
@@ -11,7 +18,11 @@
   </div>
 </template>
 
-<style lang="scss" src="./mdCheckbox.scss"></style>
+<style lang="scss" src="./mdCheckbox.scss">
+  .error-remover{
+    background-color: inherit;
+  }
+</style>
 
 <script>
   import theme from '../../core/components/mdTheme/mixin';
@@ -21,7 +32,25 @@
       name: String,
       value: [String, Boolean],
       id: String,
-      disabled: Boolean
+      disabled: Boolean,
+      vValidate: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvAs: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvDelay: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvName: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValuePath: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValidateOn: {
+        type: String | Object | Array | Boolean | Function
+      }
     },
     mixins: [theme],
     data() {

@@ -6,7 +6,11 @@
   </div>
 </template>
 
-<style lang="scss" src="./mdTable.scss"></style>
+<style lang="scss" src="./mdTable.scss">
+  .error-remover{
+    background-color: inherit;
+  }
+</style>
 
 <script>
   import theme from '../../core/components/mdTheme/mixin';

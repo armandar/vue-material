@@ -19,11 +19,21 @@
       :multiple="multiple"
       :accept="accept"
       @change="onFileSelected"
+      :v-validate="vValidate"
+      :data-vv-as="dataVvAs"
+      :data-vv-delay="dataVvDelay"
+      :data-vv-name="dataVvName"
+      :data-vv-value-path="dataVvValuePath"
+      :data-vv-validate-on="dataVvValidateOn" 
       ref="fileInput">
   </div>
 </template>
 
-<style lang="scss" src="./mdFile.scss"></style>
+<style lang="scss" src="./mdFile.scss">
+  .error-remover{
+    background-color: inherit;
+  }
+</style>
 
 <script>
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
@@ -37,7 +47,25 @@
       required: Boolean,
       placeholder: String,
       accept: String,
-      multiple: Boolean
+      multiple: Boolean,
+      vValidate: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvAs: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvDelay: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvName: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValuePath: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValidateOn: {
+        type: String | Object | Array | Boolean | Function
+      }
     },
     data() {
       return {

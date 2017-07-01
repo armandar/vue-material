@@ -16,6 +16,12 @@
         :placeholder="placeholder"
         :maxlength="maxlength"
         :name="name"
+        :v-validate="vValidate"
+        :data-vv-as="dataVvAs"
+        :data-vv-delay="dataVvDelay"
+        :data-vv-name="dataVvName"
+        :data-vv-value-path="dataVvValuePath"
+        :data-vv-validate-on="dataVvValidateOn" 
         @focus="onFocus"
         @blur="onBlur"
         @input="debounceUpdate"/>
@@ -49,6 +55,26 @@
         parentContainer: null,
         searchButton: null
       };
+    },
+    props: {
+      vValidate: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvAs: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvDelay: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvName: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValuePath: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValidateOn: {
+        type: String | Object | Array | Boolean | Function
+      }
     },
     computed: {
       listIsEmpty() {

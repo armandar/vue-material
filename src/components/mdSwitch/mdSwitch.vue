@@ -2,9 +2,15 @@
   <div class="md-switch" :class="[themeClass, classes]">
     <div class="md-switch-container" @click="toggle($event)">
       <div class="md-switch-thumb" :style="styles">
-        <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
+        <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value"
+            :v-validate="vValidate"
+            :data-vv-as="dataVvAs"
+            :data-vv-delay="dataVvDelay"
+            :data-vv-name="dataVvName"
+            :data-vv-value-path="dataVvValuePath"
+            :data-vv-validate-on="dataVvValidateOn">
         <button :type="type" class="md-switch-holder"></button>
-        <md-ink-ripple :md-disabled="disabled" />
+        <md-ink-ripple :md-disabled="disabled"></md-ink-ripple>
       </div>
     </div>
 
@@ -14,7 +20,11 @@
   </div>
 </template>
 
-<style lang="scss" src="./mdSwitch.scss"></style>
+<style lang="scss" src="./mdSwitch.scss">
+  .error-remover{
+    background-color: inherit;
+  }
+</style>
 
 <script>
   import theme from '../../core/components/mdTheme/mixin';
@@ -31,6 +41,24 @@
       type: {
         type: String,
         default: 'button'
+      },
+      vValidate: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvAs: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvDelay: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvName: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValuePath: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValidateOn: {
+        type: String | Object | Array | Boolean | Function
       }
     },
     mixins: [theme],

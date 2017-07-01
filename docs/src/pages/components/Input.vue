@@ -308,7 +308,8 @@
 
               <md-input-container>
                 <label>With label</label>
-                <md-input placeholder="My nice placeholder"></md-input>
+                <md-input v-validate:email="'required|email'" v-model="email" name="email" data-vv-as="پست الکترونیک" placeholder="My nice placeholder"></md-input>
+                <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
               </md-input-container>
 
               <md-input-container md-inline>
@@ -627,7 +628,8 @@
           {name: 'oi'},
           {name: 'hello'},
           {name: 'salut'}
-        ]
+        ],
+        email: ''
       };
     },
     methods: {

@@ -57,7 +57,7 @@
         if (this.multiple) {
           return 'md-multiple ' + this.mdMenuClass;
         }
-        
+  
         return this.mdMenuClass;
       }
     },
@@ -107,7 +107,7 @@
             output.text = options.$refs.item.textContent;
           }
         });
-        
+  
         return output;
       },
       getMultipleValue(modelValue) {
@@ -129,13 +129,13 @@
               }
             });
           });
-          
+  
           return {
             value: modelValue,
             text: outputText.join(', ')
           };
         }
-        
+  
         return {};
       },
       setTextAndValue(modelValue) {
@@ -145,7 +145,7 @@
   
         this.selectedValue = output.value;
         this.selectedText = output.text;
-        
+  
         if (this.parentContainer) {
           this.parentContainer.setValue(this.selectedText);
         }
@@ -181,14 +181,14 @@
     },
     mounted() {
       this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
-      
+  
       if (this.parentContainer) {
         this.setParentDisabled();
         this.setParentRequired();
         this.setParentPlaceholder();
         this.parentContainer.hasSelect = true;
       }
-      
+  
       this.setTextAndValue(this.value);
     },
     beforeDestroy() {
