@@ -4452,7 +4452,25 @@ exports.default = {
     name: String,
     value: [String, Boolean],
     id: String,
-    disabled: Boolean
+    disabled: Boolean,
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
   },
   mixins: [_mixin2.default],
   data: function data() {
@@ -4484,6 +4502,17 @@ exports.default = {
     }
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5121,7 +5150,25 @@ exports.default = {
     required: Boolean,
     placeholder: String,
     accept: String,
-    multiple: Boolean
+    multiple: Boolean,
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
   },
   data: function data() {
     return {
@@ -5184,6 +5231,16 @@ exports.default = {
     this.parentContainer.hasFile = false;
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5459,6 +5516,26 @@ exports.default = {
     };
   },
 
+  props: {
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
+  },
   computed: {
     listIsEmpty: function listIsEmpty() {
       return this.list.length === 0;
@@ -5649,6 +5726,12 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 module.exports = exports['default'];
 
@@ -5690,6 +5773,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 exports.default = {
   mixins: [_common2.default],
@@ -5697,6 +5786,24 @@ exports.default = {
     type: {
       type: String,
       default: 'text'
+    },
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
     }
   },
   mounted: function mounted() {
@@ -5862,6 +5969,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
   mixins: [_common2.default],
+  props: {
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
+  },
   watch: {
     value: function value() {
       var _this = this;
@@ -5900,6 +6027,12 @@ exports.default = {
     _autosize2.default.destroy(this.$el);
   }
 }; //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6838,7 +6971,25 @@ exports.default = {
       type: [String, Boolean, Number],
       required: true
     },
-    disabled: Boolean
+    disabled: Boolean,
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
   },
   mixins: [_mixin2.default],
   computed: {
@@ -6858,6 +7009,16 @@ exports.default = {
     }
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7037,7 +7198,25 @@ exports.default = {
     value: [String, Number, Array],
     disabled: Boolean,
     placeholder: String,
-    mdMenuClass: String
+    mdMenuClass: String,
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
   },
   mixins: [_mixin2.default],
   data: function data() {
@@ -7208,6 +7387,12 @@ exports.default = {
     }
   }
 }; //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7782,6 +7967,16 @@ var checkedPosition = 75; //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var initialPosition = '-1px';
 
@@ -7794,6 +7989,24 @@ exports.default = {
     type: {
       type: String,
       default: 'button'
+    },
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
     }
   },
   mixins: [_mixin2.default],
@@ -7878,6 +8091,10 @@ var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -8352,6 +8569,7 @@ exports.default = {
     emitPaginationEvent: function emitPaginationEvent() {
       if (this.canFireEvents) {
         var sub = this.currentPage * this.currentSize;
+
         this.subTotal = sub > this.totalItems ? this.totalItems : sub;
         this.$emit('pagination', {
           size: this.currentSize,
@@ -8362,6 +8580,7 @@ exports.default = {
     changeSize: function changeSize() {
       if (this.canFireEvents) {
         var sub = this.currentPage * this.currentSize;
+
         if (sub > this.totalItems) {
           this.firstPage();
         }
@@ -13077,7 +13296,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "radio",
       "name": _vm.name,
       "id": _vm.id,
-      "disabled": _vm.disabled
+      "disabled": _vm.disabled,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     },
     domProps: {
       "value": _vm.value
@@ -13509,7 +13734,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": _vm.required,
       "placeholder": _vm.placeholder,
       "maxlength": _vm.maxlength,
-      "readonly": _vm.readonly
+      "readonly": _vm.readonly,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     },
     domProps: {
       "value": _vm.value
@@ -13606,7 +13837,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": _vm.required,
       "placeholder": _vm.placeholder,
       "maxlength": _vm.maxlength,
-      "name": _vm.name
+      "name": _vm.name,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     },
     domProps: {
       "value": (_vm.query)
@@ -14166,7 +14403,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "name": _vm.name,
       "disabled": _vm.disabled,
       "multiple": _vm.multiple,
-      "accept": _vm.accept
+      "accept": _vm.accept,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     },
     on: {
       "change": _vm.onFileSelected
@@ -14469,7 +14712,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": _vm.required,
       "placeholder": _vm.placeholder,
       "maxlength": _vm.maxlength,
-      "readonly": _vm.readonly
+      "readonly": _vm.readonly,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     },
     domProps: {
       "value": _vm.value
@@ -14693,7 +14942,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "checkbox",
       "name": _vm.name,
       "id": _vm.id,
-      "disabled": _vm.disabled
+      "disabled": _vm.disabled,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     },
     domProps: {
       "value": _vm.value
@@ -14811,6 +15066,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "name": _vm.name,
       "id": _vm.id,
       "disabled": _vm.disabled,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn,
       "tabindex": "-1"
     },
     domProps: {
@@ -14871,7 +15132,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": _vm.id,
       "required": _vm.required,
       "disabled": _vm.disabled,
-      "tabindex": "-1"
+      "tabindex": "-1",
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     }
   }, [(!_vm.multiple) ? _c('option', {
     attrs: {

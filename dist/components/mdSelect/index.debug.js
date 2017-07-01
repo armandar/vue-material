@@ -434,7 +434,25 @@ exports.default = {
     value: [String, Number, Array],
     disabled: Boolean,
     placeholder: String,
-    mdMenuClass: String
+    mdMenuClass: String,
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
   },
   mixins: [_mixin2.default],
   data: function data() {
@@ -605,6 +623,12 @@ exports.default = {
     }
   }
 }; //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1143,7 +1167,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": _vm.id,
       "required": _vm.required,
       "disabled": _vm.disabled,
-      "tabindex": "-1"
+      "tabindex": "-1",
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     }
   }, [(!_vm.multiple) ? _c('option', {
     attrs: {

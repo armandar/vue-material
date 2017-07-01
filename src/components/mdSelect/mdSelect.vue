@@ -8,7 +8,13 @@
       </md-menu-content>
     </md-menu>
     
-    <select :name="name" :id="id" :required="required" :disabled="disabled" tabindex="-1">
+    <select :name="name" :id="id" :required="required" :disabled="disabled" tabindex="-1"
+          :v-validate="vValidate"
+          :data-vv-as="dataVvAs"
+          :data-vv-delay="dataVvDelay"
+          :data-vv-name="dataVvName"
+          :data-vv-value-path="dataVvValuePath"
+          :data-vv-validate-on="dataVvValidateOn">
           <option selected="true" :value="selectedValue" v-if="!multiple">{{ selectedText }}</option>
           <option selected="true" v-for="option in multipleOptions" :key="option.value" v-if="option.value" :value="option.value">{{ option.text }}</option>
         </select>
@@ -35,7 +41,25 @@
       value: [String, Number, Array],
       disabled: Boolean,
       placeholder: String,
-      mdMenuClass: String
+      mdMenuClass: String,
+      vValidate: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvAs: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvDelay: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvName: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValuePath: {
+        type: String | Object | Array | Boolean | Function
+      },
+      dataVvValidateOn: {
+        type: String | Object | Array | Boolean | Function
+      }
     },
     mixins: [theme],
     data() {

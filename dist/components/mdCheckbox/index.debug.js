@@ -215,7 +215,25 @@ exports.default = {
     name: String,
     value: [String, Boolean],
     id: String,
-    disabled: Boolean
+    disabled: Boolean,
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
   },
   mixins: [_mixin2.default],
   data: function data() {
@@ -247,6 +265,17 @@ exports.default = {
     }
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -343,6 +372,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "name": _vm.name,
       "id": _vm.id,
       "disabled": _vm.disabled,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn,
       "tabindex": "-1"
     },
     domProps: {

@@ -667,6 +667,26 @@ exports.default = {
     };
   },
 
+  props: {
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
+  },
   computed: {
     listIsEmpty: function listIsEmpty() {
       return this.list.length === 0;
@@ -857,6 +877,12 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 module.exports = exports['default'];
 
@@ -910,6 +936,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 exports.default = {
   mixins: [_common2.default],
@@ -917,6 +949,24 @@ exports.default = {
     type: {
       type: String,
       default: 'text'
+    },
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
     }
   },
   mounted: function mounted() {
@@ -1084,6 +1134,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
   mixins: [_common2.default],
+  props: {
+    vValidate: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvAs: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvDelay: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvName: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValuePath: {
+      type: String | Object | Array | Boolean | Function
+    },
+    dataVvValidateOn: {
+      type: String | Object | Array | Boolean | Function
+    }
+  },
   watch: {
     value: function value() {
       var _this = this;
@@ -1122,6 +1192,12 @@ exports.default = {
     _autosize2.default.destroy(this.$el);
   }
 }; //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1722,7 +1798,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": _vm.required,
       "placeholder": _vm.placeholder,
       "maxlength": _vm.maxlength,
-      "readonly": _vm.readonly
+      "readonly": _vm.readonly,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     },
     domProps: {
       "value": _vm.value
@@ -1787,7 +1869,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": _vm.required,
       "placeholder": _vm.placeholder,
       "maxlength": _vm.maxlength,
-      "name": _vm.name
+      "name": _vm.name,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     },
     domProps: {
       "value": (_vm.query)
@@ -1865,7 +1953,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": _vm.required,
       "placeholder": _vm.placeholder,
       "maxlength": _vm.maxlength,
-      "readonly": _vm.readonly
+      "readonly": _vm.readonly,
+      "v-validate": _vm.vValidate,
+      "data-vv-as": _vm.dataVvAs,
+      "data-vv-delay": _vm.dataVvDelay,
+      "data-vv-name": _vm.dataVvName,
+      "data-vv-value-path": _vm.dataVvValuePath,
+      "data-vv-validate-on": _vm.dataVvValidateOn
     },
     domProps: {
       "value": _vm.value

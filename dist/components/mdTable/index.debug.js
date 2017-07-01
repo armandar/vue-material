@@ -454,6 +454,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
 
 exports.default = {
   props: {
@@ -924,6 +928,7 @@ exports.default = {
     emitPaginationEvent: function emitPaginationEvent() {
       if (this.canFireEvents) {
         var sub = this.currentPage * this.currentSize;
+
         this.subTotal = sub > this.totalItems ? this.totalItems : sub;
         this.$emit('pagination', {
           size: this.currentSize,
@@ -934,6 +939,7 @@ exports.default = {
     changeSize: function changeSize() {
       if (this.canFireEvents) {
         var sub = this.currentPage * this.currentSize;
+
         if (sub > this.totalItems) {
           this.firstPage();
         }
