@@ -275,16 +275,15 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
 
 exports.default = {
+  name: 'md-bottom-bar-item',
   props: {
     mdIcon: String,
     mdIconSrc: String,
     mdIconset: String,
     mdActive: Boolean,
-    disabled: String,
+    disabled: Boolean,
     href: String
   },
   data: function data() {
@@ -306,19 +305,20 @@ exports.default = {
     }
   },
   methods: {
-    setActive: function setActive(active) {
+    setActive: function setActive(active, $event) {
       if (active) {
         this.$parent.setActive(this);
+      }
+      if ($event) {
+        this.$emit('click', $event);
       }
     }
   },
   mounted: function mounted() {
     if (!this.$parent.$el.classList.contains('md-bottom-bar')) {
       this.$destroy();
-
       throw new Error('You should wrap the md-bottom-bar-item in a md-bottom-bar');
     }
-
     if (this.mdActive) {
       this.active = true;
     }
@@ -447,11 +447,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "disabled": _vm.disabled
     },
     on: {
-      "click": _vm.setActive
+      "click": function($event) {
+        _vm.setActive(true, $event)
+      }
     }
   }, [(_vm.mdIcon || _vm.mdIconSrc || _vm.mdIconset) ? _c('md-icon', {
     attrs: {
-      "md-icon-src": _vm.mdIconSrc,
+      "md-src": _vm.mdIconSrc,
       "md-iconset": _vm.mdIconset
     }
   }, [_vm._v(_vm._s(_vm.mdIcon))]) : _vm._e(), _vm._v(" "), _c('md-ink-ripple', {
@@ -468,7 +470,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "disabled": _vm.disabled
     },
     on: {
-      "click": _vm.setActive
+      "click": function($event) {
+        _vm.setActive(true, $event)
+      }
     }
   }, [(_vm.mdIcon || _vm.mdIconSrc || _vm.mdIconset) ? _c('md-icon', {
     attrs: {
