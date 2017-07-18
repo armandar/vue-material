@@ -147,7 +147,7 @@
             <div class="field-group">
               <md-input-container>
                 <label for="movie">Movie</label>
-                <md-select name="movie" id="movie" v-model="movie">
+                <md-select :rtl="true" name="movie" id="movie" v-model="movie">
                   <md-option value="fight_club">Fight Club</md-option>
                   <md-option value="godfather">Godfather</md-option>
                   <md-option value="godfather_ii">Godfather II</md-option>
@@ -160,7 +160,7 @@
 
               <md-input-container>
                 <label for="country">Country</label>
-                <md-select name="country" id="country" v-model="country">
+                <md-select :rtl="true" name="country" id="country" v-model="country">
                   <md-option value="australia">Australia</md-option>
                   <md-option value="brazil">Brazil</md-option>
                   <md-option value="japan">Japan</md-option>
@@ -170,7 +170,7 @@
 
               <md-input-container>
                 <label for="font">Font</label>
-                <md-select name="font" id="font" v-model="font">
+                <md-select  :rtl="true" name="font" id="font" v-model="font">
                   <md-option value="arial">Arial</md-option>
                   <md-option value="calibri">Calibri</md-option>
                   <md-option value="cambria">Cambria</md-option>
@@ -183,7 +183,7 @@
                   <md-option value="impact">Impact</md-option>
                   <md-option value="roboto">Roboto</md-option>
                   <md-option value="segoe_ui">Segoe UI</md-option>
-                  <md-option value="times_new_roman">Times New Roman</md-option>
+                  <md-option value="times_new_roman">Times New Roman Times New Roman</md-option>
                   <md-option value="ubuntu">Ubuntu</md-option>
                   <md-option value="verdana">Verdana</md-option>
                 </md-select>
@@ -191,7 +191,7 @@
 
               <md-input-container>
                 <label for="food">Food</label>
-                <md-select name="food" id="food" v-model="food">
+                <md-select  :rtl="true" name="food" id="food" v-model="food">
                   <md-subheader>Fruits</md-subheader>
                   <md-option value="apples">Apples</md-option>
                   <md-option value="bananas">Bananas</md-option>
@@ -304,7 +304,7 @@
             <div class="field-group">
               <md-input-container>
                 <label for="users">Simple multiselect</label>
-                <md-select name="option" id="option" multiple v-model="items">
+                <md-select :rtl="true" name="option" id="optionhhh" multiple v-model="items">
                   <md-option v-for="option in options"
                     :key="option"
                     :value="option">
@@ -321,7 +321,7 @@
             <div class="field-group">
               <md-input-container>
                 <label for="users">Multiselect with subheaders</label>
-                <md-select name="users" id="users" multiple v-model="users">
+                <md-select :rtl="true" name="users" id="users" multiple v-model="users">
                   <md-subheader>Managers</md-subheader>
                   <md-option value="jim_halpert">Jim Halpert</md-option>
                   <md-option value="dwight_schrute">Dwight Schrute</md-option>

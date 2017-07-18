@@ -452,6 +452,11 @@ exports.default = {
     },
     dataVvValidateOn: {
       type: String | Object | Array | Boolean | Function
+    },
+    rtl: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   mixins: [_mixin2.default],
@@ -1142,7 +1147,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: [_vm.themeClass, _vm.classes]
   }, [_c('md-menu', {
     attrs: {
-      "md-close-on-select": !_vm.multiple
+      "md-close-on-select": !_vm.multiple,
+      "rtl": _vm.rtl
     },
     on: {
       "opened": function($event) {

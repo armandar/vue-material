@@ -6521,6 +6521,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
 
 exports.default = {
   props: {
@@ -6547,6 +6551,11 @@ exports.default = {
     mdCloseOnSelect: {
       type: Boolean,
       default: true
+    },
+    rtl: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   data: function data() {
@@ -6622,6 +6631,7 @@ exports.default = {
     },
     calculateMenuContentPos: function calculateMenuContentPos() {
       var position = void 0;
+      var menuTriggerRect = this.menuTrigger.getBoundingClientRect();
 
       if (!this.mdDirection) {
         position = this.getPosition('bottom', 'right');
@@ -6632,7 +6642,12 @@ exports.default = {
       position = (0, _getInViewPosition2.default)(this.menuContent, position);
 
       this.menuContent.style.top = position.top + window.pageYOffset + 'px';
-      this.menuContent.style.left = position.left + window.pageXOffset + 'px';
+      if (this.rtl === true) {
+        this.menuContent.style.left = menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width + 20 + 'px';
+        this.menuContent.style.minWidth = menuTriggerRect.width + 'px';
+      } else {
+        this.menuContent.style.left = position.left + window.pageXOffset + 'px';
+      }
     },
     recalculateOnResize: function recalculateOnResize() {
       window.requestAnimationFrame(this.calculateMenuContentPos);
@@ -6653,6 +6668,7 @@ exports.default = {
       this.menuContent.focus();
       this.active = true;
       this.$emit('open');
+      this.calculateMenuContentPos();
     },
     close: function close() {
       var _this = this;
@@ -7216,6 +7232,11 @@ exports.default = {
     },
     dataVvValidateOn: {
       type: String | Object | Array | Boolean | Function
+    },
+    rtl: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   mixins: [_mixin2.default],
@@ -15111,7 +15132,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: [_vm.themeClass, _vm.classes]
   }, [_c('md-menu', {
     attrs: {
-      "md-close-on-select": !_vm.multiple
+      "md-close-on-select": !_vm.multiple,
+      "rtl": _vm.rtl
     },
     on: {
       "opened": function($event) {

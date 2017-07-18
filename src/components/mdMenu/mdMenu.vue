@@ -6,12 +6,16 @@
   </div>
 </template>
 
-<style lang="scss" src="./mdMenu.scss"></style>
+<style lang="scss" src="./mdMenu.scss">
+  .tt {
+    background: none;
+  }
+</style>
 
 <script>
   import transitionEndEventName from '../../core/utils/transitionEndEventName';
   import getInViewPosition from '../../core/utils/getInViewPosition';
-
+  
   export default {
     props: {
       mdSize: {
@@ -37,6 +41,11 @@
       mdCloseOnSelect: {
         type: Boolean,
         default: true
+      },
+      rtl: {
+        type: Boolean,
+        required: false,
+        default: false
       }
     },
     data: () => ({
@@ -90,7 +99,7 @@
       },
       getPosition(vertical, horizontal) {
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-
+  
         let top = vertical === 'top'
           ? menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight
           : menuTriggerRect.top;
@@ -109,12 +118,13 @@
             top += menuTriggerRect.height + 11;
           }
         }
-
+  
         return { top, left };
       },
       calculateMenuContentPos() {
         let position;
-
+        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
+  
         if (!this.mdDirection) {
           position = this.getPosition('bottom', 'right');
         } else {
@@ -124,7 +134,12 @@
         position = getInViewPosition(this.menuContent, position);
 
         this.menuContent.style.top = position.top + window.pageYOffset + 'px';
-        this.menuContent.style.left = position.left + window.pageXOffset + 'px';
+        if (this.rtl === true) {
+          this.menuContent.style.left = menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width + 20 + 'px';
+          this.menuContent.style.minWidth = menuTriggerRect.width + 'px';
+        } else {
+          this.menuContent.style.left = position.left + window.pageXOffset + 'px';
+        }
       },
       recalculateOnResize() {
         window.requestAnimationFrame(this.calculateMenuContentPos);
@@ -145,12 +160,13 @@
         this.menuContent.focus();
         this.active = true;
         this.$emit('open');
+        this.calculateMenuContentPos();
       },
       close() {
         let close = (event) => {
           if (this.menuContent && event.target === this.menuContent) {
             let activeRipple = this.menuContent.querySelector('.md-ripple.md-active');
-
+  
             this.menuContent.removeEventListener(transitionEndEventName, close);
             this.menuTrigger.focus();
             this.active = false;
@@ -164,7 +180,7 @@
             window.removeEventListener('resize', this.recalculateOnResize);
           }
         };
-
+  
         this.menuContent.addEventListener(transitionEndEventName, close);
         this.menuContent.classList.remove('md-active');
         this.$emit('close');
@@ -196,7 +212,7 @@
         document.body.removeChild(this.menuContent);
         document.body.removeChild(this.backdropElement);
       }
-
+  
       this.menuTrigger.removeEventListener('click', this.toggle);
       window.removeEventListener('resize', this.recalculateOnResize);
     }

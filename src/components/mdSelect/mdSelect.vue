@@ -1,6 +1,6 @@
 <template>
   <div class="md-select" :class="[themeClass, classes]">
-    <md-menu :md-close-on-select="!multiple" @opened="$emit('open')" @closed="$emit('close')">
+    <md-menu :md-close-on-select="!multiple" @opened="$emit('open')" @closed="$emit('close')" :rtl="rtl">
       <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || placeholder }}</span>
       
       <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
@@ -59,6 +59,11 @@
       },
       dataVvValidateOn: {
         type: String | Object | Array | Boolean | Function
+      },
+      rtl: {
+        type: Boolean,
+        required: false,
+        default: false
       }
     },
     mixins: [theme],
