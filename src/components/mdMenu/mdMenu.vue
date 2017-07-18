@@ -135,7 +135,7 @@
 
         this.menuContent.style.top = position.top + window.pageYOffset + 'px';
         if (this.rtl === true) {
-          this.menuContent.style.left = menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width + 20 + 'px';
+          this.menuContent.style.left = menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width + 'px';
           this.menuContent.style.minWidth = menuTriggerRect.width + 'px';
         } else {
           this.menuContent.style.left = position.left + window.pageXOffset + 'px';
